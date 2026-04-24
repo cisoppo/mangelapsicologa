@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Psicoterapêutico · Maria Angela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #C0BDB3;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      background: #F2EFE9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      width: 100%;
+      padding: 52px 36px 0;
+      text-align: center;
+    }
+
+    .header-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #B0ACA8;
+      font-weight: 300;
+    }
+
+    .header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #2A2825;
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 36px;
+      height: 1px;
+      background: #C0BDB3;
+      margin: 28px auto;
+      flex-shrink: 0;
+    }
+
+    /* ── Emotional Copy ── */
+    .copy {
+      width: 100%;
+      padding: 0 36px;
+    }
+
+    .copy-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: #2A2825;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .copy-body {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: #5A5650;
+      line-height: 1.9;
+    }
+
+    .copy-body p {
+      margin-bottom: 16px;
+    }
+
+    .copy-body strong {
+      font-weight: 500;
+      color: #2A2825;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 6px 0 20px;
+    }
+
+    .checklist li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #5A5650;
+      line-height: 1.75;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #C0BDB3;
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    .copy-sparkle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: #7A7570;
+      line-height: 1.65;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ── Questionnaire intro ── */
+    .q-intro {
+      width: 100%;
+      padding: 0 36px;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #B0ACA8;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .q-intro-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #7A7570;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .q-intro-sub {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: #9A9590;
+      line-height: 1.7;
+    }
+
+    /* ── Form ── */
+    .form {
+      width: 100%;
+      padding: 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field-num {
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C0BDB3;
+      font-weight: 400;
+    }
+
+    .field-question {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: #2A2825;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #D8D5D0;
+      padding: 10px 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #2A2825;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="tel"]::placeholder,
+    textarea::placeholder {
+      color: #C0BDB3;
+      font-weight: 300;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      border-bottom-color: #2A2825;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 72px;
+    }
+
+    /* ── Radio & Checkbox ── */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .option-item input[type="radio"],
+    .option-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      border: 1px solid #C0BDB3;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+      background: transparent;
+    }
+
+    .option-item input[type="checkbox"] {
+      border-radius: 2px;
+    }
+
+    .option-item input[type="radio"]:checked,
+    .option-item input[type="checkbox"]:checked {
+      background: #2A2825;
+      border-color: #2A2825;
+    }
+
+    .option-item input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #F2EFE9;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .option-item input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      font-size: 9px;
+      color: #F2EFE9;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+    }
+
+    .option-label {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: #5A5650;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    /* ── Submit ── */
+    .submit-btn {
+      width: 100%;
+      background: #2A2825;
+      color: #F2EFE9;
+      border: none;
+      padding: 18px 22px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: opacity 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .submit-btn:hover { opacity: 0.82; }
+    .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .privacy-note {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: #B0ACA8;
+      text-align: center;
+      line-height: 1.65;
+      padding: 0 36px;
+      margin-top: -14px;
+    }
+
+    /* ── Thank you ── */
+    .thankyou {
+      display: none;
+      text-align: center;
+      padding: 0 36px;
+    }
+
+    .thankyou.visible { display: block; }
+
+    .thankyou-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #C0BDB3;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #2A2825;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-text {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #7A7570;
+      line-height: 1.85;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B0ACA8;
+      font-weight: 300;
+      text-align: center;
+      padding: 0 24px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-label">Maria Angela da Cunha · CRP 12/13354</p>
+      <h1 class="header-title">Grupo<br>Psicoterapêutico</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Emotional Copy -->
+    <div class="copy">
+      <h2 class="copy-heading">Os dias estão<br>mais intensos.</h2>
+      <div class="copy-body">
+        <p>O tempo parece curto, a mente acelerada<br>e o corpo… cansado.</p>
+        <p>Muita gente tem sentido que precisa dar conta de tudo —<br>mas, por dentro, algo pede pausa, sentido e reorganização.</p>
+        <p>Talvez você também esteja vivendo isso:</p>
+        <ul class="checklist">
+          <li>excesso de pensamentos</li>
+          <li>dificuldade de desacelerar</li>
+          <li>cansaço emocional constante</li>
+          <li>sensação de estar "funcionando", mas não vivendo</li>
+        </ul>
+        <p>Por isso, estou formando um novo <strong>Grupo Psicoterapêutico</strong> — um espaço seguro, estruturado e acolhedor para compreender o que você sente, reorganizar sua vida emocional e construir novas formas de estar no mundo.</p>
+      </div>
+
+      <div class="divider" style="margin: 28px 0;"></div>
+
+      <p class="copy-sparkle">✨ Um espaço de escuta,<br>consciência e transformação.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Questionnaire Intro -->
+    <div class="q-intro">
+      <p class="section-eyebrow">Questionário inicial</p>
+      <p class="q-intro-title">Antes de iniciar o grupo, convido você<br>a responder este breve questionário.</p>
+      <p class="q-intro-sub">Ele não é uma avaliação no sentido tradicional, mas um primeiro espaço de escuta. As respostas são sigilosas e analisadas com cuidado.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Form -->
+    <form class="form" id="questionario" action="https://formspree.io/f/mqewnknd" method="POST">
+
+      <div class="field">
+        <span class="field-num">Identificação</span>
+        <label class="field-question" for="nome">Como gostaria de ser chamada(o)?</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+      </div>
+
+      <div class="field">
+        <label class="field-question" for="whatsapp">Seu WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(00) 00000-0000">
+      </div>
+
+      <div class="field">
+        <span class="field-num">01</span>
+        <p class="field-question">O que tem te levado a buscar ajuda neste momento da sua vida?</p>
+        <textarea name="q1_momento_atual" placeholder="Pode escrever livremente..."></textarea>
+      </div>
+
+      <div class="field">
+        <span class="field-num">02</span>
+        <p class="field-question">Como você descreveria seu nível atual de estresse emocional?</p>
+        <div class="options">
+          <label class="option-item">
+            <input type="radio" name="q2_estresse" value="Baixo — consigo lidar bem">
+            <span class="option-label">Baixo — consigo lidar bem</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q2_estresse" value="Moderado — às vezes me sinto sobrecarregada(o)">
+            <span class="option-label">Moderado — às vezes me sinto sobrecarregada(o)</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q2_estresse" value="Alto — com frequência me sinto esgotada(o)">
+            <span class="option-label">Alto — com frequência me sinto esgotada(o)</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q2_estresse" value="Muito alto — está difícil de sustentar">
+            <span class="option-label">Muito alto — está difícil de sustentar</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-num">03</span>
+        <p class="field-question">Em quais áreas você sente maior sobrecarga atualmente?</p>
+        <div class="options">
+          <label class="option-item">
+            <input type="checkbox" name="q3_sobrecarga" value="Trabalho / carreira">
+            <span class="option-label">Trabalho / carreira</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="q3_sobrecarga" value="Relações e vínculos">
+            <span class="option-label">Relações e vínculos</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="q3_sobrecarga" value="Vida emocional / interior">
+            <span class="option-label">Vida emocional / interior</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="q3_sobrecarga" value="Corpo e saúde">
+            <span class="option-label">Corpo e saúde</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" name="q3_sobrecarga" value="Outras">
+            <span class="option-label">Outras áreas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-num">04</span>
+        <p class="field-question">Você já fez psicoterapia antes?</p>
+        <div class="options">
+          <label class="option-item">
+            <input type="radio" name="q4_terapia_anterior" value="Sim">
+            <span class="option-label">Sim</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q4_terapia_anterior" value="Não">
+            <span class="option-label">Não</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-num">05</span>
+        <p class="field-question">Você se sente confortável em compartilhar experiências em grupo?</p>
+        <div class="options">
+          <label class="option-item">
+            <input type="radio" name="q5_conforto_grupo" value="Sim, sinto">
+            <span class="option-label">Sim, sinto</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q5_conforto_grupo" value="Tenho alguma reserva, mas estou aberta(o)">
+            <span class="option-label">Tenho alguma reserva, mas estou aberta(o)</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="q5_conforto_grupo" value="Ainda não sei, mas quero tentar">
+            <span class="option-label">Ainda não sei, mas quero tentar</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-num">06</span>
+        <p class="field-question">O que você espera de um grupo terapêutico?</p>
+        <textarea name="q6_expectativas" placeholder="Pode escrever livremente..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Enviar questionário</button>
+    </form>
+
+    <p class="privacy-note">Suas respostas são sigilosas e serão analisadas<br>com cuidado e atenção.</p>
+
+    <!-- Thank you state (hidden until form is sent) -->
+    <div class="thankyou" id="thankyou">
+      <p class="thankyou-mark">✦</p>
+      <h2 class="thankyou-title">Obrigada por<br>compartilhar.</h2>
+      <p class="thankyou-text">Recebi suas respostas com muito cuidado.<br><br>Em breve entrarei em contato pelo WhatsApp<br>para conversarmos sobre os próximos passos.</p>
+    </div>
+
+    <div class="divider" style="margin-top: 44px;"></div>
+    <p class="footer">@mangelapsicologa &nbsp;·&nbsp; Florianópolis & Online</p>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('questionario');
+    const thankyou = document.getElementById('thankyou');
+    const submitBtn = document.getElementById('submit-btn');
+    const privacyNote = document.querySelector('.privacy-note');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          privacyNote.style.display = 'none';
+          thankyou.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Tentar novamente';
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Tentar novamente';
+      }
+    });
+  </script>
+</body>
+</html>
